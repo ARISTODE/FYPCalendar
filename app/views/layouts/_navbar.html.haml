@@ -1,0 +1,10 @@
+%nav.navbar.navbar-default{:role => "navigation"}
+  .container-fluid
+    .navbar-header
+      .navbar-brand
+        FCalendar
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to 'Teacher', '#'
+      %li= link_to 'Student', new_student_session_path
+      - if student_signed_in? && controller.controller_name == "dashboard"
+        %li= link_to 'Log Out',  destroy_student_session_path, method: :delete

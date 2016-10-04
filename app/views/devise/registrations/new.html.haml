@@ -1,0 +1,44 @@
+= render partial: "layouts/navbar"
+.container
+  .row
+    .col-sm-12
+      %h2 Student Registration
+
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: 'form-horizontal'}, role: 'form') do |f|
+        = devise_error_messages!
+        = f.input :name, autofocus: true
+        / .form-group.row
+        /   = f.label :name, class: 'col-sm-2 control-label'
+        /   .col-sm-5
+        /     = f.email_field :name, :autofocus => true, class: 'form-control'
+
+        / .form-group.row
+        /   = f.label :email, class: 'col-sm-2 control-label'
+        /   .col-sm-5
+        /     = f.email_field :email, :autofocus => true, class: 'form-control'
+
+        / .form-group.row
+        /   = f.label :password, class: 'col-sm-2 control-label'
+        /   .col-sm-5
+        /     = f.password_field :password, class: 'form-control'
+
+        / .form-group.row
+        /   = f.label :password_confirmation,'Re-enter Password', class: 'col-sm-2 control-label'
+        /   .col-sm-5
+        /     = f.password_field :password_confirmation, class: 'form-control'
+
+        / .form-group.row
+        /   = f.label :topic, class: 'col-sm-2 control-label'
+        /   .col-sm-5
+        /     = f.email_field :topic, :autofocus => true, class: 'form-control'
+
+        / .form-group.row
+        /   = f.label :supervisor, class: 'col-sm-2 control-label'
+        /   .col-sm-5
+        /     = collection_select :dropdown, :supervisor, :id, :area, { allow_blank: "Select area..." }, { class: 'form-control' }
+
+        .row
+          .col-sm-7
+            .pull-right
+              = f.submit "Register", class: 'btn btn-success'
+              = link_to 'Login', new_student_session_path, class: 'btn btn-success'
